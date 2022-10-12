@@ -17,7 +17,8 @@ namespace OnlineFoodOrderingSystem
              * ask the user credential
              */
             string username, password;
-            Console.WriteLine("Enter UserName: ");
+            Console.WriteLine("******* Welcome to the Food Ordering System *******");
+            Console.WriteLine("\nEnter UserName: ");
             username=Console.ReadLine();
             Console.WriteLine("Enter Password: ");
             password=Console.ReadLine();
@@ -67,7 +68,7 @@ namespace OnlineFoodOrderingSystem
                         Logout();
                         choice = 0; break;
                     default:
-                        Console.WriteLine("Invalid coice");
+                        Console.WriteLine("\nInvalid coice");
                         break;
                 }
 
@@ -76,6 +77,7 @@ namespace OnlineFoodOrderingSystem
 
         private static void Logout()
         {
+            Console.Clear();
             Console.WriteLine("\nYou have been successfully logged out.");
             return;
         }
@@ -118,12 +120,20 @@ namespace OnlineFoodOrderingSystem
 
         private static void CreateNewCustomer(string username, string password)
         {
-            Console.WriteLine("\nNew customer acccount created");
+            try
+            {
+
+                Console.WriteLine("\nYour customer acccount created");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static bool ValidateCustomer(string userid, string password)
         {
-            return false;
+            return true;
         }
 
         private static void DisplayChoice()
