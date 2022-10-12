@@ -272,6 +272,81 @@ namespace BLLayer
             }
             return cancel;
         }
+        public bool ValidateCustomersBL(Customers customer)
+        {
+            bool valid = true;
+            try
+            {
+                //write code here
+
+                //---------------
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return valid;
+        }
+        public bool ValidatePaymentDetailsBL(Payments payments)
+        {
+            bool pay = true;
+            try
+            {
+                //write code here
+
+                //---------------
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return pay;
+        }
+        public bool ValidateFoodItemsBL(FoodItems foodItems)
+        {
+            bool food = true;
+            try
+            {
+                //write code here
+
+                //---------------
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return food;
+        }
+        public bool ValidateOrderDetailsBL(OrderDetails orderDetails)
+        {
+            bool order = true;
+            try
+            {
+                //write code here
+
+                //---------------
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return order;
+        }
+        public bool ValidateOrdersBL(Orders orders)
+        {
+            bool order = true;
+            try
+            {
+                //write code here
+
+                //---------------
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return order;
+        }
         /*
          * Admin Fucntionalities Business Logic
          */
