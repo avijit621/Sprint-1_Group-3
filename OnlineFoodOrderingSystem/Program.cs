@@ -16,30 +16,45 @@ namespace OnlineFoodOrderingSystem
             /*
              * ask the user credential
              */
+            #region Get credentials
+
             string username, password;
             Console.WriteLine("******* Welcome to the Food Ordering System *******");
             Console.WriteLine("\nEnter UserName: ");
             username=Console.ReadLine();
             Console.WriteLine("Enter Password: ");
             password=Console.ReadLine();
+
+            #endregion
             /*
              * if id exists verify and proceed to show options otherwise redirect to create new userid
              */
-            bool valid = ValidateCustomer(username, password);
-            if (!valid)
+            #region Log In/ Create Account
+
+            try
             {
-                Console.WriteLine("\nYou do not have an account with this credentials.\nDo you want to create a new account?");
-                string ans=Console.ReadLine();
-                if (ans == "y" || ans == "yes" || ans=="Yes" || ans=="YES")
+                bool validcustomer = ValidateExistingCustomer(username, password);
+                if (!validcustomer)
                 {
-                    CreateNewCustomer(username, password);
-                }
-                else
-                {
-                    Console.WriteLine("Invalid choices. Program exited");
-                    return;
+                    Console.WriteLine("\nYou do not have an account with this credentials.\nDo you want to create a new account?");
+                    string ans = Console.ReadLine();
+                    if (ans == "y" || ans == "yes" || ans == "Yes" || ans == "YES")
+                    {
+                        CreateNewCustomer(username, password);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choices. Program exited");
+                        return;
+                    }
                 }
             }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
+            #endregion
             /*
              * show customer the choice of actions and ask to select one action
              */
@@ -122,8 +137,34 @@ namespace OnlineFoodOrderingSystem
         {
             try
             {
-
-                Console.WriteLine("\nYour customer acccount created");
+                Customer customer = new Customer();
+                FoodOrderBL foodOrderBL = new FoodOrderBL();
+                bool newcustadded = foodOrderBL.NewCustomerBL(username, password);
+                if (newcustadded)
+                {
+                    Console.WriteLine("\nYour customer acccount created");
+                    Console.WriteLine("\nEnter few details to complete your profile**** ");
+                    Console.WriteLine("\nEnter Your Name: ");
+                    customer.Name = Console.ReadLine();
+                    Console.WriteLine("Enter Mobile Number: ");
+                    customer.Mobile=Console.ReadLine();
+                    Console.WriteLine("Enter Email address: ");
+                    customer.Email=Console.ReadLine();
+                    Console.WriteLine("Enter Gender: ");
+                    customer.Gender = Convert.ToChar(Console.ReadLine());
+                    Console.WriteLine("Enter City: ");
+                    customer.City=Console.ReadLine();
+                    Console.WriteLine("Enter Pincode: ");
+                    customer.Pincode=Console.ReadLine();
+                    Console.WriteLine("Enter Food Delivery Address");
+                    customer.Address = Console.ReadLine();
+                    bool updated = foodOrderBL.UpdateDetailsBL(customer);
+                    if (updated)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Your profile is updated\n");
+                    }
+                }
             }
             catch(Exception ex)
             {
@@ -131,7 +172,7 @@ namespace OnlineFoodOrderingSystem
             }
         }
 
-        private static bool ValidateCustomer(string userid, string password)
+        private static bool ValidateExistingCustomer(string userid, string password)
         {
             return true;
         }
