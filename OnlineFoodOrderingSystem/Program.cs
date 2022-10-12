@@ -21,10 +21,10 @@ namespace OnlineFoodOrderingSystem
             /*
              * if id exists verify and proceed to show options otherwise redirect to create new userid
              */
-            int choice;
+            int choice=1;
             do
             {
-                Console.WriteLine()
+                Console.WriteLine();
 
             } while (choice != 0);
         }
