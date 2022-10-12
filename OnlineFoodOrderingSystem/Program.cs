@@ -38,7 +38,7 @@ namespace OnlineFoodOrderingSystem
                 {
                     Console.WriteLine("\nYou do not have an account with this credentials.\nDo you want to create a new account?");
                     string ans = Console.ReadLine();
-                    if (ans == "y" || ans == "yes" || ans == "Yes" || ans == "YES")
+                    if (string.Equals(ans, "y", StringComparison.OrdinalIgnoreCase) || string.Equals(ans, "yes", StringComparison.OrdinalIgnoreCase))
                     {
                         CreateNewCustomer(username, password);
                     }
@@ -48,16 +48,21 @@ namespace OnlineFoodOrderingSystem
                         return;
                     }
                 }
+                else
+                {
+                    Console.WriteLine("\nLogged In suucessfully.");
+                }
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            
+
             #endregion
             /*
              * show customer the choice of actions and ask to select one action
              */
+            #region Display Customer Choices
             int choice;
             do
             {
@@ -88,13 +93,23 @@ namespace OnlineFoodOrderingSystem
                 }
 
             } while (choice != 0);
+            #endregion
         }
+        /*
+         * Customer Choice Methods
+         */
+        #region Customer Functionalities
 
         private static void Logout()
         {
-            Console.Clear();
-            Console.WriteLine("\nYou have been successfully logged out.");
-            return;
+            Console.WriteLine("Do you really want to Log Out?");
+            string ans = Console.ReadLine();
+            if (string.Equals(ans, "y", StringComparison.OrdinalIgnoreCase) || string.Equals(ans, "yes", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.Clear();
+                Console.WriteLine("\nYou have been successfully logged out.");
+                return;
+            }
         }
 
         private static void UpdateUserDetails()
@@ -191,5 +206,15 @@ namespace OnlineFoodOrderingSystem
             Console.WriteLine("0.Exit");
             Console.WriteLine("Enter your choice:");
         }
+
+        #endregion
+
+        /*
+         * Admin Choice Methods
+         */
+        #region Admin Functionalities
+
+
+        #endregion
     }
 }
