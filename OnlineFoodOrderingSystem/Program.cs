@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.Remoting.Services;
 using System.Text;
 using System.Threading.Tasks;
+using BLLayer;
+using EntityLayer;
 
 namespace OnlineFoodOrderingSystem
 {
