@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4974901626b04606a6c2d6b6800e769f" Name="Diagram1">
+        <EntityTypeShape EntityType="FoodSystemModel.Customer" Width="1.5" PointX="11.125" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodSystemModel.FoodItem" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodSystemModel.OrderDetail" Width="1.5" PointX="6.625" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodSystemModel.Order" Width="1.5" PointX="9" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodSystemModel.Payment" Width="1.5" PointX="5.125" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="FoodSystemModel.FK__Orders__CustID__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodSystemModel.FK_Order_details_FoodItems" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodSystemModel.FK_Order_details_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodSystemModel.fk_Orders" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
