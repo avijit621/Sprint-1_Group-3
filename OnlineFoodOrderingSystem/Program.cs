@@ -455,7 +455,7 @@ namespace OnlineFoodOrderingSystem
             Console.WriteLine("3.Modify Order");
             Console.WriteLine("4.Track Order");
             Console.WriteLine("5.Make Payment");
-            Console.WriteLine("6.Payment Status");
+            Console.WriteLine("6.Show Order Details");
             Console.WriteLine("7.Update User Details");
             Console.WriteLine("8.Log out");
             Console.WriteLine("0.Exit");
